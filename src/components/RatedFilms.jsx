@@ -1,7 +1,14 @@
 export default function RatedFilms() {
   return (
-    <div>
-      <h1>Ocenjeni filmovi</h1>
-    </div>
+    <>
+      <h1
+        style={{
+          height: 100,
+          textAlign: "center",
+        }}
+      >
+        Tvoje ocene filmova
+      </h1>
+    </>
   );
 }
