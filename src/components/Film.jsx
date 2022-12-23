@@ -1,12 +1,15 @@
-import { useState } from "react";
 import EmptyStar from "./EmptyStar";
 import FullStar from "./FullStar";
 
 export default function Film(props) {
-  const [rating, setRating] = useState(0);
-
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        margin: "3rem",
+      }}
+    >
       <img
         src={props.image}
         alt={props.title}
@@ -22,19 +25,21 @@ export default function Film(props) {
         }
       />
       <p style={{ fontSize: "x-large" }}>{props.title}</p>
-      {Array.from({ length: 5 }, (_, i) => i + 1).map((index) => (
-        <span style={{}} onClick={() => setRating((prev) => index)}>
-          {props.filmShown ? (
-            rating < index ? (
-              <EmptyStar />
+      <div>
+        {Array.from({ length: 5 }, (_, i) => i + 1).map((index) => (
+          <span onClick={() => props.setRating(index)}>
+            {props.filmShown ? (
+              props.rating < index ? (
+                <EmptyStar />
+              ) : (
+                <FullStar />
+              )
             ) : (
-              <FullStar />
-            )
-          ) : (
-            <></>
-          )}
-        </span>
-      ))}
-    </>
+              <></>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }

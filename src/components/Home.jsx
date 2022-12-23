@@ -2,11 +2,12 @@ import { TMDB_API_KEY } from "../constants";
 import Film from "./Film";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home(props) {
   const [txtState, setTxtState] = useState("");
   const [filmTitle, setFilmTitle] = useState("");
   const [filmImageUrl, setFilmImageUrl] = useState("");
   const [message, setMessage] = useState("");
+  const [rating, setRating] = useState(0);
   const filmShown = filmTitle !== "";
 
   const getMovie = async function (title) {
@@ -18,7 +19,20 @@ export default function Home() {
       (prev) =>
         `https://image.tmdb.org/t/p/original/${responseJson.results[0].poster_path}`
     );
-    setFilmTitle((prev) => responseJson.results[0].title);
+    setFilmTitle(responseJson.results[0].title);
+    setRating(0);
+  };
+
+  const addMovie = function () {
+    props.setMovies((prev) => [
+      ...prev,
+      {
+        title: filmTitle,
+        imageUrl: filmImageUrl,
+        rating: rating,
+      },
+    ]);
+    setMessage("Hvala na dodeljenoj oceni!");
   };
 
   return (
@@ -40,13 +54,14 @@ export default function Home() {
       >
         <input
           onClick={() => {
-            setFilmTitle((prev) => "");
-            setFilmImageUrl((prev) => "");
-            setMessage((prev) => "");
+            setFilmTitle("");
+            setFilmImageUrl("");
+            setMessage("");
+            setRating(0);
           }}
           type="text"
           value={txtState}
-          onChange={(event) => setTxtState((prev) => event.target.value)}
+          onChange={(event) => setTxtState(event.target.value)}
         />
         <button onClick={() => getMovie(txtState)}>Search</button>
       </div>
@@ -56,17 +71,22 @@ export default function Home() {
           fontSize: "large",
         }}
       >
-        <Film
-          title={filmTitle}
-          image={filmImageUrl}
-          setMessage={setMessage}
-          filmShown={filmShown}
-        />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Film
+            title={filmTitle}
+            image={filmImageUrl}
+            setMessage={setMessage}
+            filmShown={filmShown}
+            rating={rating}
+            setRating={setRating}
+          />
+        </div>
+
         <p style={{ marginTop: 15, fontSize: "x-large" }}>{message}</p>
         {filmShown ? (
           <button
             style={{ width: "10rem", height: "3rem", marginBottom: "1rem" }}
-            onClick={() => setMessage((prev) => "Hvala na dodeljenoj oceni!")}
+            onClick={addMovie}
           >
             Save a rating
           </button>

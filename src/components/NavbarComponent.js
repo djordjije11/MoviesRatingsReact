@@ -7,7 +7,7 @@ export default function NavbarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>Filmovi</Navbar.Brand>
+        <Navbar.Brand>Movies</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -23,7 +23,7 @@ export default function NavbarComponent() {
                 className="text-decoration-none text-white"
                 to="/rated-films"
               >
-                Rated films
+                Rated movies
               </Link>
             </Nav.Link>
           </Nav>
