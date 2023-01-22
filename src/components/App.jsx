@@ -15,7 +15,10 @@ export default function App() {
           element={<Home movies={movies} setMovies={setMovies} />}
           path={"/"}
         />
-        <Route element={<RatedFilms movies={movies} />} path={"/rated-films"} />
+        <Route
+          element={<RatedFilms movies={movies} setMovies={setMovies} />}
+          path={"/rated-films"}
+        />
       </Routes>
     </BrowserRouter>
   );

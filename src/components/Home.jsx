@@ -32,7 +32,7 @@ export default function Home(props) {
         rating: rating,
       },
     ]);
-    setMessage("Hvala na dodeljenoj oceni!");
+    setMessage("Thank you for rating a movie!");
   };
 
   return (
@@ -85,6 +85,7 @@ export default function Home(props) {
         <p style={{ marginTop: 15, fontSize: "x-large" }}>{message}</p>
         {filmShown ? (
           <button
+            class="btn btn-dark"
             style={{ width: "10rem", height: "3rem", marginBottom: "1rem" }}
             onClick={addMovie}
           >
