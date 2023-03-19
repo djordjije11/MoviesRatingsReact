@@ -17,7 +17,7 @@ export default function App() {
         />
         <Route
           element={<RatedFilms movies={movies} setMovies={setMovies} />}
-          path={"/rated-films"}
+          path={"/rated-movies"}
         />
       </Routes>
     </BrowserRouter>

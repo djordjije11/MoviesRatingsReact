@@ -12,16 +12,14 @@ export default function NavbarComponent() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              {" "}
               <Link className="text-decoration-none text-white" to="/">
                 Home
               </Link>
             </Nav.Link>
             <Nav.Link>
-              {" "}
               <Link
                 className="text-decoration-none text-white"
-                to="/rated-films"
+                to="/rated-movies"
               >
                 Rated movies
               </Link>

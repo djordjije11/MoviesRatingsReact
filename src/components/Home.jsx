@@ -16,8 +16,7 @@ export default function Home(props) {
     );
     const responseJson = await response.json();
     setFilmImageUrl(
-      (prev) =>
-        `https://image.tmdb.org/t/p/original/${responseJson.results[0].poster_path}`
+      `https://image.tmdb.org/t/p/original/${responseJson.results[0].poster_path}`
     );
     setFilmTitle(responseJson.results[0].title);
     setRating(0);
@@ -81,7 +80,6 @@ export default function Home(props) {
             setRating={setRating}
           />
         </div>
-
         <p style={{ marginTop: 15, fontSize: "x-large" }}>{message}</p>
         {filmShown ? (
           <button
