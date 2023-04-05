@@ -15,6 +15,9 @@ export default function Home(props) {
       `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${title}`
     );
     const responseJson = await response.json();
+
+    console.log(responseJson);
+
     setFilmImageUrl(
       `https://image.tmdb.org/t/p/original/${responseJson.results[0].poster_path}`
     );
