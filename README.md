@@ -1,3 +1,9 @@
+# MoviesRatingsReact
+
+The app enables users to search for any movie available in The Movie Database (TMDB) API on the home page and rate it according to their preference.
+On the second page, users can view all their ratings for movies and delete them if needed.
+The application was developed using React as the initial frontend solution, leaving ample opportunity for further refinement and enhancement.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
